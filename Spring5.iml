@@ -18,6 +18,17 @@
       <configuration>
         <fileset id="fileset" name="AppCtx" removed="false">
           <file>file://$MODULE_DIR$/src/main/java/ch03/config/AppCtx.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/ch03/config/AppConf1.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/ch03/config/AppConf2.java</file>
+        </fileset>
+        <fileset id="fileset2" name="ch04" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/ch04/config/AppCtx.java</file>
+        </fileset>
+        <fileset id="fileset3" name="ch05" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/ch05/config/AppCtx.java</file>
+        </fileset>
+        <fileset id="fileset4" name="ch06" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/ch06/config/AppCtx.java</file>
         </fileset>
       </configuration>
     </facet>

@@ -1,12 +1,9 @@
-package ch03.main;
+package ch05.main;
 
-import ch03.config.AppConf1;
-import ch03.config.AppConf2;
-import ch03.spring.*;
-
+import ch05.config.AppCtx;
+import ch05.spring.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,7 +12,7 @@ import java.io.InputStreamReader;
 public class MainForSpring {
     private static ApplicationContext ctx = null;
     public static void main(String[] args) throws IOException {
-        ctx = new AnnotationConfigApplicationContext(AppConf1.class);
+        ctx = new AnnotationConfigApplicationContext(AppCtx.class);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while(true){
             System.out.println("명령어를 입력하세요.");
@@ -48,7 +45,7 @@ public class MainForSpring {
             printHelp();
             return;
         }
-        MemberRegisterService registerService = ctx.getBean("memberRegisterService", MemberRegisterService.class);
+        MemberRegisterService registerService = ctx.getBean(MemberRegisterService.class);
         RegisterRequest request = new RegisterRequest();
         request.setEmail(args[1]);
         request.setName(args[2]);
@@ -72,7 +69,7 @@ public class MainForSpring {
             printHelp();
             return;
         }
-        ChangePasswordService changePasswordService = ctx.getBean("changePasswordService", ChangePasswordService.class);
+        ChangePasswordService changePasswordService = ctx.getBean(ChangePasswordService.class);
         try{
             changePasswordService.changePassword(args[1], args[2], args[3]);
             System.out.println("암호를 변경했습니다.");
@@ -93,7 +90,7 @@ public class MainForSpring {
     }
 
     private static void processListCommand(){
-        MemberListPrinter listPrinter = ctx.getBean("memberListPrinter", MemberListPrinter.class);
+        MemberListPrinter listPrinter = ctx.getBean("listPrinter", MemberListPrinter.class);
         listPrinter.printAll();
     }
 
@@ -102,7 +99,7 @@ public class MainForSpring {
             printHelp();
             return;
         }
-        MemberInfoPrinter memberInfoPrinter = ctx.getBean("memberInfoPrinter", MemberInfoPrinter.class);
+        MemberInfoPrinter memberInfoPrinter = ctx.getBean("infoPrinter", MemberInfoPrinter.class);
         memberInfoPrinter.printMemberInfo(args[1]);
     }
     private static void processVersionCommand(){

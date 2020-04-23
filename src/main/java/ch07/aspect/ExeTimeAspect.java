@@ -5,15 +5,17 @@ import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 
 import java.util.Arrays;
 
 @Aspect
+@Order(1)
 public class ExeTimeAspect {
     @Pointcut(value = "execution(* ch07..*.fa*(..))")
-    private void publicTarget(){ }
+    public void publicTarget(){ }
 
-    @Around(value = "publicTarget()")
+    @Around("CacheAspect.cacheTarget()")
     private Object measure(ProceedingJoinPoint joinPoint) throws Throwable{
         long start = System.nanoTime();
         try{

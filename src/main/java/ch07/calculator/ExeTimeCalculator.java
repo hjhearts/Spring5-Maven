@@ -1,4 +1,4 @@
-package ch07;
+package ch07.calculator;
 
 public class ExeTimeCalculator implements Calculator {
     private Calculator calculator;

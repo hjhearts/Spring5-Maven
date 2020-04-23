@@ -1,8 +1,8 @@
 package ch07.main;
 
-import ch07.ExeTimeCalculator;
-import ch07.ImplCalculator;
-import ch07.RecCalculator;
+import ch07.calculator.ExeTimeCalculator;
+import ch07.calculator.ImplCalculator;
+import ch07.calculator.RecCalculator;
 
 public class MainProxy {
     public static void main(String[] args) {

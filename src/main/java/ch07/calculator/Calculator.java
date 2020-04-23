@@ -1,4 +1,4 @@
-package ch07;
+package ch07.calculator;
 
 public interface Calculator {
     public long factorial(long num);

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function fn_loadDoc(frame) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() {
+                if(this.status === 200 && this.readyState === this.DONE) {
+                    showDetail(xmlHttp, frame);
+                }
+            };
+            xmlHttp.open("GET", "11904951.xml", true);
+            xmlHttp.send();
+        }
+        function showDetail(xmlHttp, frame){
+            var xmlObj, nameList, versionList, langList, typeList, urlList;
+            xmlObj = xmlHttp.responseXML;
+            nameList = xmlObj.getElementsByTagName("name");
+            versionList = xmlObj.getElementsByTagName("version");
+            langList = xmlObj.getElementsByTagName("language");
+            typeList = xmlObj.getElementsByTagName("type");
+            urlList = xmlObj.getElementsByTagName("url");
+            var responseHtml = '<table><tr><td class="tit">이름</td><td>'+nameList[frame].childNodes[0].nodeValue+'</td></tr>';
+            responseHtml += '<tr><td class="tit">버전</td><td>'+versionList[frame].childNodes[0].nodeValue+'</td></tr>';
+            responseHtml += '<tr><td class="tit">언어</td><td>'+langList[frame].childNodes[0].nodeValue+'</td></tr>';
+            responseHtml += '<tr><td class="tit">언어타입</td><td>'+typeList[frame].childNodes[0].nodeValue+'</td>';
+            responseHtml += '<tr><td class="tit">새창에서열기</td><td>';
+            responseHtml += '<a class="urls" target="_blank" href="'+urlList[frame].childNodes[0].nodeValue+'">'+urlList[frame].childNodes[0].nodeValue+'</a>';
+            responseHtml += '</td></tr></table>';
+            document.getElementById('frameworkInfo' + frame).innerHTML = responseHtml;
+            document.getElementById(frame).setAttribute('value', '정보 숨기기');
+            document.getElementById(frame).setAttribute('onclick', 'fn_removeDetail('+frame+')');
+        }
+        function fn_removeDetail(frame){
+            document.getElementById('frameworkInfo'+frame).innerHTML = '';
+            document.getElementById(frame).setAttribute('onclick', 'fn_loadDoc(this.id)');
+            document.getElementById(frame).setAttribute('value', '정보 확인하기');
+        }
+    </script>
+    <style>
+
+        .inline-block{
+            display:inline-block;
+            border:3px solid darkseagreen;
+            border-radius: 8px;
+        }
+        .urls{
+            text-decoration: none;
+            color: #CD5C5C;
+
+        }
+        .urls:hover{
+            animation-name: changeTextColor;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            transition: 0.5s;
+        }
+        .info-btn{
+            text-align: center;
+            width:100%;
+            height: 50px;
+            background-color:lightgreen;
+            font-size:25px;
+            font-weight: bold;
+            cursor:pointer;
+            border:0;
+            outline: 0;
+            padding: 0;
+        }
+        .info-btn:hover{
+            animation-name: changeBtnColor;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            transition: 0.8s;
+        }
+        @keyframes changeTextColor{
+            0%{
+                color:#CD5C5C;
+            }
+            50%{
+                color: lightblue;
+            }
+        }
+        @keyframes changeBtnColor {
+            0%{
+                background-color:lightgreen;
+                color:black;
+                font-size:25px;
+            }
+            50%{
+                background-color:white;
+                color:darkseagreen;
+                font-size:26px;
+            }
+        }
+        .name{
+            border-bottom: 2px solid darkseagreen;
+            padding:0;
+            margin:0;
+            font-size:30px;
+            font-weight: bolder;
+            width: 100%;
+            background-color:lightgreen;
+        }
+        .tit {
+            background-color: lightgreen;
+            text-align: center;
+        }
+        table{
+            font-weight: bold;
+        }
+        header{
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Framework World</h1>
+        <p>이미지를 클릭하면 홈페이지로 이동합니다.</p>
+    </header>
+    <div id="container">
+        <h2 id="back">Back-end</h2>
+        <div id="back-end">
+            <div class="inline-block">
+                <p class="name">Spring(boot)</p>
+                <a href="https://spring.io/">
+                    <img src="./images/spring.png" alt="스프링 프레임워크" width="350" height="350"/><br/>
+                </a>
+                <input class="info-btn" id="0" type="button" value="정보 확인하기" onclick="fn_loadDoc(this.id)"/>
+                <div id="frameworkInfo0"></div>
+            </div>
+            <div class="inline-block">
+                <p class="name">DJango</p>
+                <a href="https://www.djangoproject.com/">
+                    <img src="./images/django.jpeg" alt="장고 프레임워크" width="350" height="350"/><br/>
+                </a>
+                <input class="info-btn" id="1" type="button" value="정보 확인하기" onclick="fn_loadDoc(this.id)"/>
+                <div id="frameworkInfo1"></div>
+            </div>
+            <div class="inline-block">
+                <p class="name">Node.js</p>
+                <a href="https://nodejs.org/ko/">
+                    <img src="./images/nodejs.jpg" alt="노드JS 프레임워크" width="350" height="350"/><br/>
+                </a>
+                <input class="info-btn" id="2" type="button" value="정보 확인하기" onclick="fn_loadDoc(this.id)"/>
+                <div id="frameworkInfo2"></div>
+            </div>
+            <div class="inline-block">
+                <p class="name">Laravel</p>
+                <a id="url3" href="https://laravel.kr/">
+                    <img src="./images/laravel.jpg" alt="라라벨 프레임워크" width="350" height="350"/><br/>
+                </a>
+                <input class="info-btn" id="3" type="button" value="정보 확인하기" onclick="fn_loadDoc(this.id)"/>
+                <div id="frameworkInfo3"></div>
+            </div>
+        </div>
+        <h2 id="front">Front-end</h2>
+        <div id="front-end">
+            <div class="inline-block">
+                <p class="name">React</p>
+                <a href="https://ko.reactjs.org/">
+                    <img src="./images/react.png" alt="리액트 프레임워크" width="350" height="350"/><br/>
+                </a>
+                <input class="info-btn" id="4" type="button" value="정보 확인하기" onclick="fn_loadDoc(this.id)"/>
+                <div id="frameworkInfo4"></div>
+            </div>
+            <div class="inline-block">
+                <p class="name">Vue.js</p>
+                <a href="https://kr.vuejs.org/">
+                    <img src="./images/vuejs.jpeg" alt="뷰JS 프레임워크" width="350" height="350"/><br/>
+                </a>
+                <input class="info-btn" id="5" type="button" value="정보 확인하기" onclick="fn_loadDoc(this.id)"/>
+                <div id="frameworkInfo5"></div>
+            </div>
+            <div class="inline-block">
+                <p class="name">Bootstrap</p>
+                <a href="https://getbootstrap.com/">
+                    <img src="./images/bootstrap.png" alt="부트스트랩 프레임워크" width="350" height="350"/><br/>
+                </a>
+                <input class="info-btn" id="6" type="button" value="정보 확인하기" onclick="fn_loadDoc(this.id)"/>
+                <div id="frameworkInfo6"></div>
+            </div>
+            <div class="inline-block">
+                <p class="name">Angular</p>
+                <a href="https://angular.io/">
+                    <img src="./images/angular.png" alt="앵귤러 프레임워크" width="350" height="350"/><br/></a>
+                <input class="info-btn" id="7" type="button" value="정보 확인하기" onclick="fn_loadDoc(this.id)"/>
+                <div id="frameworkInfo7"></div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>학과 : 컴퓨터공학과</p>
+        <p>학번 : 11904951</p>
+        <p>이름 : 한주성</p>
+    </footer>
+</body>
+</html>

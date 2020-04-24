@@ -1,12 +1,14 @@
 package ch08.spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+@Service
 public class ChangePasswordService {
+    @Autowired
     private MemberDAO memberDAO;
 
-    public void setMemberDAO(MemberDAO memberDAO){
-        this.memberDAO = memberDAO;
-    }
-
+    @Transactional
     public void changePassword(String email, String oldPassword, String newPassword){
         Member member = memberDAO.selectByEmail(email);
         if(member == null){

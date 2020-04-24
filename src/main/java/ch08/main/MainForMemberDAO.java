@@ -6,6 +6,7 @@ import ch08.spring.MemberDAO;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.http.converter.json.GsonBuilderUtils;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -17,7 +18,6 @@ public class MainForMemberDAO {
         AbstractApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx.class);
         memberDAO = ctx.getBean("memberDAO", MemberDAO.class);
         selectAll();
-        updateMember();
         insertMember();
     }
 
@@ -50,4 +50,5 @@ public class MainForMemberDAO {
         memberDAO.insert(member);
         System.out.println("회원추가 완료 : " + member.getId());
     }
+
 }

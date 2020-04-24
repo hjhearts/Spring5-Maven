@@ -2,16 +2,13 @@ package ch08.spring;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementCreator;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 
-import java.sql.*;
-import java.util.Collection;
-import java.util.HashMap;
+import java.sql.PreparedStatement;
+import java.sql.Timestamp;
 import java.util.List;
-import java.util.Map;
+
 
 public class MemberDAO {
     private JdbcTemplate jdbcTemplate;
@@ -75,6 +72,7 @@ public class MemberDAO {
         return jdbcTemplate.queryForObject(
                 "select count(*) from MEMBER", Integer.class
         );
+
     }
 
     public Member selectById(long id){
@@ -91,4 +89,5 @@ public class MemberDAO {
                     return member1;
                 }, id);
     }
+
 }

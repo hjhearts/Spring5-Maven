@@ -1,7 +1,11 @@
 package ch08.spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class MemberInfoPrinter {
+    @Autowired
     private MemberDAO memberDAO;
+    @Autowired
     private MemberPrinter memberPrinter;
     public void setMemberDAO(MemberDAO memberDAO){
         this.memberDAO = memberDAO;

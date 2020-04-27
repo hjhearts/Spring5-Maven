@@ -1,20 +1,40 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="Spring5:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/Spring5_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/target/Spring5-1.0-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>Spring5</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
     <root id="root">
-      <element id="javaee-facet-resources" facet="Spring5/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="Spring5" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.9.5" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.2.3.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.2.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:5.2.3.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.2.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.2.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.2.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.2.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.2.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.2.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.2.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.2.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jdbc:9.0.34" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-juli:9.0.34" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.19" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.6.1" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.30" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.2.3" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.2.3" />
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:4.0.1" />
+          <element id="library" level="project" name="Maven: javax.servlet.jsp:javax.servlet.jsp-api:2.3.3" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.2.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.2.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.9.5" />
           <element id="library" level="project" name="Spring-5.2.3.RELEASE" />
           <element id="library" level="project" name="Spring Batch-2.2.6" />
           <element id="library" level="project" name="Spring Data JPA-2.2.4.RELEASE" />
@@ -23,17 +43,12 @@
           <element id="library" level="project" name="Spring Security-5.2.1" />
           <element id="library" level="project" name="Spring Web Services-2.0.2" />
           <element id="library" level="project" name="Spring Webflow-2.4.0" />
-          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.6.1" />
-          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.19" />
-          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jdbc:9.0.34" />
-          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-juli:9.0.34" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.2.3.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.2.3.RELEASE" />
-          <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.2.3" />
-          <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.2.3" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.30" />
         </element>
       </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/Spring5-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="Spring5/web/Web" />
     </root>
   </artifact>
 </component>

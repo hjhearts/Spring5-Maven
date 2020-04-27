@@ -45,6 +45,10 @@
           <file>file://$MODULE_DIR$/src/main/java/ch10/config/MvcConfig.java</file>
           <file>file://$MODULE_DIR$/src/main/java/ch10/config/ControllerConfig.java</file>
         </fileset>
+        <fileset id="fileset9" name="ch11" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/ch11/config/MemberConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/ch11/config/MvcConfig.java</file>
+        </fileset>
       </configuration>
     </facet>
   </component>

@@ -90,4 +90,7 @@ public class MemberDAO {
                 }, id);
     }
 
+    public void deleteMember(Member member) {
+        jdbcTemplate.update("delete from member where email = ?", member.getEmail());
+    }
 }

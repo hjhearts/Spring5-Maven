@@ -28,6 +28,8 @@ public class Main {
                 processInfoCommand(command.split(" "));
             }else if(command.equalsIgnoreCase("list")){
                 processListCommand();
+            }else if(command.startsWith("delete ")){
+                processDeleteCommand(command.split(" "));
             }else{
                 helpCommand();
             }
@@ -97,6 +99,24 @@ public class Main {
         System.out.println("비밀번호 변경 - change email old-pass new-pass");
         System.out.println("회원조회 - info email");
         System.out.println("리스트조회 - list");
+        System.out.println("회원 삭제 - delete email pass");
         System.out.println();
+    }
+
+    public static void processDeleteCommand(String[] args){
+        if(args.length != 3){
+            System.out.println("인자값을 확인하세요.");
+            helpCommand();
+            return;
+        }
+        try {
+            MemberDeleteService memberDeleteService = ctx.getBean(MemberDeleteService.class);
+            memberDeleteService.deleteMember(args[1], args[2]);
+            System.out.println("삭제 완료");
+        }catch (MemberNotFoundException e){
+            System.out.println("회원이 존재하지 않습니다.");
+        }catch (WrongPasswordException e){
+            System.out.println("패스워드가 일치하지 않습니다.");
+        }
     }
 }

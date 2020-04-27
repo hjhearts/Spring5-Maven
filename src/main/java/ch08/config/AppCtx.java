@@ -61,5 +61,6 @@ public class AppCtx {
         return new MemberRegisterService();
     }
 
-
+    @Bean
+    public MemberDeleteService memberDeleteService() { return new MemberDeleteService(); }
 }

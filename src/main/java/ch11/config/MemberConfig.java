@@ -1,5 +1,6 @@
 package ch11.config;
 
+import ch11.spring.AuthService;
 import ch11.spring.ChangePasswordService;
 import ch11.spring.MemberDAO;
 import ch11.spring.MemberRegisterService;
@@ -48,4 +49,6 @@ public class MemberConfig {
         return new ChangePasswordService();
     }
 
+    @Bean
+    public AuthService authService(){ return new AuthService(); }
 }

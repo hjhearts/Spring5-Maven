@@ -8,40 +8,46 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
-    <title>Title</title>
+    <title><spring:message code="member.register"/></title>
     <style>
         .notice{color:red}
     </style>
 </head>
 <body>
-    <h2>회원 정보 입력</h2>
+    <h2><spring:message code="member.info"/></h2>
     <form:form action="step3" modelAttribute="registerRequest">
         <p>
-            <label>이메일<br/>
-            <form:input path="email"/>
+            <label>
+                <spring:message code="email"/><br/>
+                <form:input path="email"/>
+                <form:errors path="email" element="span class='notice'"/>
             </label>
-            <c:if test="${registerRequest.notice eq 'duplicated'}">
-                <br/><span class="notice">이미 가입된 이메일입니다.</span>
-            </c:if>
         </p>
         <p>
-            <label>이름<br/>
-            <form:input path="name"/></label>
+            <label>
+                <spring:message code="name"/><br/>
+                <form:input path="name"/>
+                <form:errors path="name" element="span class='notice'"/>
+            </label>
         </p>
         <p>
-            <label>패스워드<br/>
-            <form:password path="password"/></label>
-            <c:if test="${registerRequest.notice eq 'checkPassword'}">
-                <br/><span class="notice">패스워드를 다시 확인하세요.</span>
-            </c:if>
+            <label>
+                <spring:message code="password"/><br/>
+                <form:password path="password"/>
+                <form:errors path="password" element="span class='notice'"/>
+            </label>
         </p>
         <p>
-            <label>패스워드 확인<br/>
-            <form:password path="confirmPassword"/></label>
+            <label>
+                <spring:message code="password.confirm"/><br/>
+                <form:password path="confirmPassword"/>
+                <form:errors path="confirmPassword" element="span class='notice'"/>
+            </label>
         </p>
-        <input type="submit" value="가입 완료"/>
+        <input type="submit" value="<spring:message code="register.btn"/>"/>
     </form:form>
 </body>
 </html>

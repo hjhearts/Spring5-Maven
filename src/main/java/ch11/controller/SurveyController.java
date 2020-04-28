@@ -1,13 +1,14 @@
 package ch11.controller;
 
+
 import ch11.servey.AnsweredData;
 import ch11.servey.Question;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,10 +17,11 @@ import java.util.List;
 @RequestMapping("/survey")
 public class SurveyController {
     @GetMapping
-    public String form(Model model){
+    public ModelAndView form(@ModelAttribute("login")LoginCommand loginCommand){
         List<Question> questions = createQuestions();
-        model.addAttribute("questions", questions);
-        return "survey/surveyForm";
+        ModelAndView mav = new ModelAndView("survey/surveyForm");
+        mav.addObject("questions", questions);
+        return mav;
     }
 
     private List<Question> createQuestions(){

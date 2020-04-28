@@ -6,9 +6,12 @@ import ch11.spring.RegisterRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 @Controller
 public class RegisterController {
@@ -22,11 +25,10 @@ public class RegisterController {
 
     @PostMapping(value = "/register/step2")
     public String handleStep2(@RequestParam(value = "agree", defaultValue = "false") boolean agreement,
-                              Model model){
+                              RegisterRequest registerRequest){
         if(!agreement){
             return "register/step1";
         }
-        model.addAttribute("registerRequest", new RegisterRequest());
         return "register/step2";
     }
 
@@ -36,20 +38,29 @@ public class RegisterController {
     }
 
     @RequestMapping(value = "/register/step3", method = RequestMethod.POST)
-    public String handleStep3(@ModelAttribute("registerRequest") RegisterRequest regRequest){
+    public String handleStep3(@Valid @ModelAttribute("registerRequest") RegisterRequest regRequest, Errors errors){
+        if(errors.hasErrors()){
+            return "register/step2";
+        }
         if(regRequest.isPasswordEqualsToConfirmPassword()) {
             try {
                 memberRegisterService.regist(regRequest);
                 return "register/step3";
             } catch (DuplicateMemberException e) {
-                regRequest.setNotice("duplicated");
+                errors.rejectValue("email", "duplicate");
                 return "register/step2";
             }
         }else{
-            regRequest.setNotice("checkPassword");
+            errors.rejectValue("confirmPassword", "nomatch");
             return "register/step2";
         }
     }
+/*
+    @InitBinder
+    protected  void initBinder(WebDataBinder binder){
+        binder.setValidator(new RegisterRequestValidator());
+    }
 
+ */
 
 }

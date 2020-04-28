@@ -61,4 +61,8 @@ public class Member {
             throw new WrongPasswordException();
         this.password = newPassword;
     }
+
+    public boolean matchPassword(String password){
+        return this.password.equals(password);
+    }
 }

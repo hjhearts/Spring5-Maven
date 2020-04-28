@@ -12,6 +12,8 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="Spring5" />
+          <element id="library" level="application" name="bootstrap" />
+          <element id="library" level="application" name="font-awesome" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-context:5.2.3.RELEASE" />

@@ -15,6 +15,9 @@ public class ChangePasswordService {
         if(member == null){
             throw new MemberNotFoundException();
         }
+        if(!member.getPassword().equals(oldPassword)){
+            throw new WrongPasswordException();
+        }
         member.changePassword(oldPassword, newPassword);
         memberDAO.update(member);
     }

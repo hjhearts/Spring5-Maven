@@ -1,8 +1,6 @@
 package ch11.config;
 
-import ch11.controller.LoginController;
-import ch11.controller.RegisterController;
-import ch11.controller.SurveyController;
+import ch11.controller.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -22,4 +20,10 @@ public class ControllerConfig {
     public LoginController loginController(){
         return new LoginController();
     }
+
+    @Bean
+    public LogoutController logoutController(){ return new LogoutController(); }
+
+    @Bean
+    public ChangePwdController changePwdController(){ return new ChangePwdController(); }
 }

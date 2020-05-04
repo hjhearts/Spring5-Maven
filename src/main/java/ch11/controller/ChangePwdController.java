@@ -20,7 +20,12 @@ public class ChangePwdController {
     private ChangePasswordService changePasswordService;
 
     @GetMapping
-    public String form(@ModelAttribute("command") ChangePwdCommand pwdCommand){
+    public String form(@ModelAttribute("command") ChangePwdCommand pwdCommand, HttpSession session){
+        /*
+        if(session.getAttribute("authInfo") == null){
+            return "redirect:/login";
+        } 인터셉터로 처리
+         */
         return "edit/changePwdForm";
     }
 

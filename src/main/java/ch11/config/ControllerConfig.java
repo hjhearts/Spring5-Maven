@@ -26,4 +26,19 @@ public class ControllerConfig {
 
     @Bean
     public ChangePwdController changePwdController(){ return new ChangePwdController(); }
+
+    @Bean
+    public MemberListController memberListController(){
+        return new MemberListController();
+    }
+
+    @Bean
+    public MemberDetailController memberDetailController(){
+        return new MemberDetailController();
+    }
+
+    @Bean
+    public DataExceptionHandler dataExceptionHandler(){
+        return new DataExceptionHandler();
+    }
 }

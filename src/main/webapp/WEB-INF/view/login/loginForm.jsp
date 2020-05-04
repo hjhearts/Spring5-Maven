@@ -33,6 +33,12 @@
                 <form:errors path="password"/>
             </label>
         </p>
+        <p>
+            <label>
+                <spring:message code="rememberEmail"/><br/>
+                <form:checkbox path="rememberEmail" cssClass="checkbox-inline"/><br/>
+            </label>
+        </p>
         <input type="submit" class="btn btn-warning btn-lg" value="<spring:message code="login.btn"/>"/>
     </form:form>
     </div>

@@ -48,6 +48,9 @@
         <fileset id="fileset9" name="ch11" removed="false">
           <file>file://$MODULE_DIR$/src/main/java/ch11/config/MemberConfig.java</file>
           <file>file://$MODULE_DIR$/src/main/java/ch11/config/MvcConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/ch11/config/DsDevConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/ch11/config/DsRealConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/ch11/config/PropertyConfig.java</file>
         </fileset>
       </configuration>
     </facet>
@@ -71,6 +74,8 @@
     <orderEntry type="library" name="Spring MVC-5.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Spring Security-5.2.1" level="project" />
     <orderEntry type="library" name="Spring Webflow-2.4.0" level="project" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="font-awesome" level="application" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:5.2.3.RELEASE" level="project" />
@@ -97,7 +102,9 @@
     <orderEntry type="library" name="Maven: jakarta.validation:jakarta.validation-api:2.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.3.4" level="project" />
-    <orderEntry type="library" name="bootstrap" level="application" />
-    <orderEntry type="library" name="font-awesome" level="application" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.11.0" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.11.0" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.11.0" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.0" level="project" />
   </component>
 </module>

@@ -22,10 +22,14 @@ public class ControllerConfig {
     }
 
     @Bean
-    public LogoutController logoutController(){ return new LogoutController(); }
+    public LogoutController logoutController(){
+        return new LogoutController();
+    }
 
     @Bean
-    public ChangePwdController changePwdController(){ return new ChangePwdController(); }
+    public ChangePwdController changePwdController(){
+        return new ChangePwdController();
+    }
 
     @Bean
     public MemberListController memberListController(){
@@ -36,9 +40,21 @@ public class ControllerConfig {
     public MemberDetailController memberDetailController(){
         return new MemberDetailController();
     }
-
+/*
     @Bean
     public DataExceptionHandler dataExceptionHandler(){
         return new DataExceptionHandler();
+    }
+
+ */
+
+    @Bean
+    public RestMemberController restMemberController(){
+        return new RestMemberController();
+    }
+
+    @Bean
+    public ApiExceptionAdvice apiExceptionAdvice(){
+        return new ApiExceptionAdvice();
     }
 }

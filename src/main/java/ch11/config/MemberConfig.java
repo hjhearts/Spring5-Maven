@@ -5,22 +5,33 @@ import ch11.spring.ChangePasswordService;
 import ch11.spring.MemberDAO;
 import ch11.spring.MemberRegisterService;
 import org.apache.tomcat.jdbc.pool.DataSource;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
+@PropertySource("classpath:db.properties")
 public class MemberConfig {
+    @Value("${db.driver}")
+    private String driver;
+    @Value("${db.url}")
+    private String jdbcUrl;
+    @Value("${db.user}")
+    private String user;
+    @Value("${db.password}")
+    private String password;
     @Bean(destroyMethod = "close")
     public DataSource dataSource(){
         DataSource dataSource = new DataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF-8&serverTimezone=UTC");
-        dataSource.setUsername("root");
-        dataSource.setPassword("1234");
+        dataSource.setDriverClassName(driver);
+        dataSource.setUrl(jdbcUrl);
+        dataSource.setUsername(user);
+        dataSource.setPassword(password);
         dataSource.setInitialSize(2);
         dataSource.setMaxActive(10);
         dataSource.setTestWhileIdle(true);

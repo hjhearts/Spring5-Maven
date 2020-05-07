@@ -22,7 +22,11 @@ public class MemberRegisterService {
                 registerRequest.getPassword(),
                 registerRequest.getName(),
                 LocalDateTime.now());
-        memberDAO.insert(newMember);
+        if(newMember.getPassword().equals(registerRequest.getConfirmPassword())) {
+            memberDAO.insert(newMember);
+        }else{
+            throw new WrongPasswordException();
+        }
         return newMember.getId();
     }
 }

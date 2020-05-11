@@ -12,8 +12,6 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="Spring5" />
-          <element id="library" level="application" name="bootstrap" />
-          <element id="library" level="application" name="font-awesome" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-context:5.2.3.RELEASE" />
@@ -45,15 +43,11 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.11.0" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.11.0" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.0" />
-          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.9.5" />
-          <element id="library" level="project" name="Spring-5.2.3.RELEASE" />
-          <element id="library" level="project" name="Spring Batch-2.2.6" />
-          <element id="library" level="project" name="Spring Data JPA-2.2.4.RELEASE" />
-          <element id="library" level="project" name="Spring Integration-5.2.3.RELEASE" />
-          <element id="library" level="project" name="Spring MVC-5.2.3.RELEASE" />
-          <element id="library" level="project" name="Spring Security-5.2.1" />
-          <element id="library" level="project" name="Spring Web Services-2.0.2" />
-          <element id="library" level="project" name="Spring Webflow-2.4.0" />
+          <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf-spring5:3.0.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf:3.0.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.attoparser:attoparser:2.0.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.unbescape:unbescape:1.1.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.thymeleaf.extras:thymeleaf-extras-java8time:3.0.4.RELEASE" />
         </element>
       </element>
       <element id="directory" name="META-INF">
